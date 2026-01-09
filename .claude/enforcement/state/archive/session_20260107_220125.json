@@ -1,0 +1,12 @@
+{
+  "sessionId": "session_20260107_220125",
+  "startTime": "2026-01-07T18:01:25Z",
+  "toolCalls": 45,
+  "fileModifications": 6,
+  "significantActions": 6,
+  "lastProgressUpdate": null,
+  "lastDecisionUpdate": null,
+  "hetaDispatches": [],
+  "violations": [],
+  "status": "active"
+}

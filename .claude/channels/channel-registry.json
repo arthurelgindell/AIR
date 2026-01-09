@@ -1,0 +1,49 @@
+{
+  "metadata": {
+    "version": "3.0.0",
+    "generated": "2026-01-08T04:45:00Z",
+    "source": "discovery-scan",
+    "rootExpert": "master-architect",
+    "totalChannels": 0,
+    "discoveryBased": true,
+    "modelAware": true,
+    "lifecycleEnabled": true
+  },
+
+  "tree": {
+    "master-architect": {
+      "id": "master-architect",
+      "type": "root",
+      "level": 0,
+      "path": ".claude/experts/master-architect.md",
+      "children": [],
+      "modelAssignment": {
+        "primary": "opus",
+        "fallback": "sonnet",
+        "lookup": "haiku",
+        "inherit": true,
+        "override": "allowed"
+      },
+      "lifecycle": {
+        "status": "active",
+        "createdAt": "2026-01-06T00:00:00Z",
+        "lastActivity": null,
+        "protected": true
+      }
+    }
+  },
+
+  "channels": [],
+
+  "routing": {
+    "primaryMethod": "file-path",
+    "secondaryMethod": "keywords",
+    "fallbackToMaster": true,
+    "pathMappings": {},
+    "keywordMappings": []
+  },
+
+  "modelResolution": {
+    "master-architect": "opus"
+  }
+}

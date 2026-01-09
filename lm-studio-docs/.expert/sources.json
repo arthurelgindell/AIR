@@ -1,0 +1,69 @@
+{
+  "version": "1.0.0",
+  "channel": "lm-studio",
+  "description": "LM Studio documentation and live server state",
+  "lastGlobalRefresh": null,
+
+  "sources": [
+    {
+      "id": "lmstudio-docs-main",
+      "type": "web",
+      "name": "LM Studio Documentation",
+      "url": "https://lmstudio.ai/docs",
+      "outputFile": "lmstudio-docs.md",
+      "cadence": "weekly",
+      "extractor": "html-to-markdown",
+      "lastFetched": null,
+      "lastSuccess": null,
+      "lastError": null,
+      "enabled": true
+    },
+    {
+      "id": "lmstudio-api-docs",
+      "type": "web",
+      "name": "LM Studio API Documentation",
+      "url": "https://lmstudio.ai/docs/api",
+      "outputFile": "lmstudio-api.md",
+      "cadence": "weekly",
+      "extractor": "html-to-markdown",
+      "lastFetched": null,
+      "lastSuccess": null,
+      "lastError": null,
+      "enabled": true
+    },
+    {
+      "id": "alpha-models",
+      "type": "api",
+      "name": "ALPHA Loaded Models",
+      "url": "https://alpha.tail5f2bae.ts.net/v1/models",
+      "outputFile": "alpha-models.json",
+      "cadence": "hourly",
+      "extractor": "json",
+      "lastFetched": null,
+      "lastSuccess": null,
+      "lastError": null,
+      "enabled": true
+    },
+    {
+      "id": "beta-models",
+      "type": "api",
+      "name": "BETA Loaded Models",
+      "url": "https://beta.tail5f2bae.ts.net/v1/models",
+      "outputFile": "beta-models.json",
+      "cadence": "hourly",
+      "extractor": "json",
+      "lastFetched": null,
+      "lastSuccess": null,
+      "lastError": null,
+      "enabled": true
+    }
+  ],
+
+  "metadata": {
+    "created": "2026-01-08T05:00:00Z",
+    "modified": null,
+    "refreshCount": 0,
+    "successCount": 0,
+    "errorCount": 0
+  }
+}

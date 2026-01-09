@@ -1,0 +1,364 @@
+{
+  "project": "ARTHUR",
+  "version": "1.0.0",
+  "description": "Reference-grade Claude Code deployment - vibe coding configuration with maximum autonomy and safety guardrails",
+
+  "respectGitignore": true,
+
+  "permissions": {
+    "defaultMode": "bypassPermissions",
+    "sandboxEnabled": true,
+    "safeCommands": [
+      "ls", "cat", "head", "tail", "grep", "find",
+      "git *",
+      "npm *",
+      "python *",
+      "node *",
+      "echo", "pwd", "which", "whoami", "date",
+      "tree", "wc", "sort", "uniq"
+    ],
+
+    "policies": {
+      "Bash": {
+        "default": "auto-accept",
+        "blocked": [
+          "rm -rf /",
+          "sudo rm -rf",
+          "> /dev/null && rm",
+          "dd if=/dev/zero",
+          "dd if=/dev/random",
+          "mkfs",
+          "fdisk /dev",
+          "format",
+          ":(){ :|:& };:"
+        ],
+        "requireConfirmation": [
+          "rm -rf",
+          "sudo",
+          "git push --force",
+          "git push -f",
+          "npm install -g",
+          "pip install --global",
+          "chmod -R 777",
+          "chown -R"
+        ]
+      },
+
+      "Edit": {
+        "default": "auto-accept",
+        "requireConfirmation": [
+          ".claude/settings.json",
+          ".claude/CLAUDE.md",
+          "package.json",
+          "requirements.txt",
+          ".env",
+          ".env.*",
+          ".gitignore",
+          "Dockerfile",
+          "docker-compose.yml"
+        ],
+        "blocked": [
+          "*.safetensors",
+          "*.bin",
+          "*.gguf",
+          "*.pt",
+          "*.pth",
+          "*.model"
+        ]
+      },
+
+      "Write": {
+        "default": "auto-accept",
+        "requireConfirmation": [
+          ".claude/*",
+          ".env*",
+          "credentials*",
+          "**/config/production.*"
+        ]
+      },
+
+      "Read": {
+        "default": "auto-accept",
+        "blocked": [
+          "*.safetensors",
+          "*.bin",
+          "*.gguf",
+          "*.pt",
+          "*.pth",
+          "*.model",
+          "**/node_modules/**",
+          "**/__pycache__/**"
+        ]
+      },
+
+      "Glob": { "default": "auto-accept" },
+      "Grep": { "default": "auto-accept" },
+      "WebFetch": { "default": "auto-accept" },
+      "WebSearch": { "default": "auto-accept" }
+    }
+  },
+
+  "context": {
+    "maxTokens": 200000,
+    "tier": "max",
+    "strategy": "filesystem-persistence",
+    "warningThreshold": 120000,
+    "compactThreshold": 160000,
+    "emergencyThreshold": 180000,
+    "criticalThreshold": 190000,
+    "autoCompact": false,
+    "preferFreshContext": true,
+    "preserveImportantContext": true,
+    "stateFiles": {
+      "progress": ".claude/context/progress.md",
+      "decisions": ".claude/context/decisions.md",
+      "importantContext": ".claude/context/important-context.md",
+      "sessionState": ".claude/context/session-state.json"
+    },
+    "archiveDirectory": ".claude/context/archive"
+  },
+
+  "agents": {
+    "enabledByDefault": true,
+    "autoActivate": true,
+    "agents": {
+      "context-manager": {
+        "enabled": true,
+        "priority": "critical",
+        "autonomous": true,
+        "alwaysActive": true,
+        "description": "Monitors and manages context window, prevents token bloat"
+      },
+      "architect": {
+        "enabled": true,
+        "priority": "high",
+        "autonomous": true,
+        "description": "Designs system architecture and creates implementation plans"
+      },
+      "code-reviewer": {
+        "enabled": true,
+        "priority": "high",
+        "autonomous": true,
+        "mode": "silent",
+        "description": "Reviews code changes, flags critical issues only in flow mode"
+      },
+      "documenter": {
+        "enabled": true,
+        "priority": "medium",
+        "autonomous": true,
+        "description": "Automatically generates and updates documentation"
+      }
+    }
+  },
+
+  "automation": {
+    "autoCommit": {
+      "enabled": false,
+      "trigger": "milestone"
+    },
+    "autoFormat": { "enabled": true, "onSave": true },
+    "autoLint": { "enabled": true, "fix": true },
+    "autoTest": { "enabled": false, "trigger": "beforeCommit" }
+  },
+
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/Users/arthurdell/ARTHUR/.claude/enforcement/scripts/session-enforcer.sh start"
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/Users/arthurdell/ARTHUR/.claude/enforcement/scripts/pre-tool-gate.sh edit"
+          }
+        ]
+      },
+      {
+        "matcher": "Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/Users/arthurdell/ARTHUR/.claude/enforcement/scripts/pre-tool-gate.sh write"
+          }
+        ]
+      },
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/Users/arthurdell/ARTHUR/.claude/enforcement/scripts/pre-tool-gate.sh bash"
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/Users/arthurdell/ARTHUR/.claude/enforcement/scripts/post-tool-auditor.sh edit"
+          }
+        ]
+      },
+      {
+        "matcher": "Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/Users/arthurdell/ARTHUR/.claude/enforcement/scripts/post-tool-auditor.sh write"
+          }
+        ]
+      }
+    ],
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/Users/arthurdell/ARTHUR/.claude/enforcement/scripts/pre-prompt-validator.sh"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/Users/arthurdell/ARTHUR/.claude/enforcement/scripts/session-enforcer.sh stop"
+          }
+        ]
+      }
+    ],
+    "PreCompact": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/Users/arthurdell/ARTHUR/.claude/lib/pre-compact-capture.sh"
+          }
+        ]
+      }
+    ]
+  },
+
+  "mcp": {
+    "enabled": true,
+    "configPath": ".claude/.mcp.json"
+  },
+
+  "ui": {
+    "notifications": { "level": "critical", "flowMode": true },
+    "statusBar": { "showTokenCount": true, "showAgentStatus": true, "showFlowScore": true }
+  },
+
+  "flowMode": {
+    "suppressNonCriticalNotifications": true,
+    "aggressiveContextManagement": false,
+    "filesystemStatePersistence": true,
+    "silentCodeReview": true,
+    "autoAcceptSafeOperations": true
+  },
+
+  "clarification": {
+    "enabled": true,
+    "mode": "clarify-first-then-vibe",
+    "fatigueEscalation": true,
+    "showStopperPause": true,
+    "vaguenessIndicators": [
+      "lacks-specificity",
+      "multiple-interpretations",
+      "missing-success-criteria",
+      "irreversible-actions",
+      "cross-cutting-concerns",
+      "fatigue-indicators"
+    ],
+    "fatigueIndicators": {
+      "shortPromptThreshold": 10
+    },
+    "protocolFile": ".claude/rules/prompt-clarification.md"
+  },
+
+  "hierarchy": {
+    "enabled": true,
+    "description": "Hierarchical Expert Tree Architecture - discovery-based domain routing",
+    "discoveryBased": true,
+    "markerFolder": ".expert",
+    "discoveryConfig": ".claude/experts/discovery-config.json",
+    "domainRegistry": ".claude/experts/domain-registry.json",
+    "masterArchitect": {
+      "directivesPath": ".claude/experts/master-architect.md",
+      "skillPath": ".claude/skills/master-architect/SKILL.md",
+      "autoRoute": true,
+      "discoveryOnActivation": true
+    },
+    "contextBudgets": {
+      "master": 40000,
+      "domain": 30000,
+      "subdomain": 20000
+    },
+    "rollUp": {
+      "enabled": true,
+      "summaryFile": "summary.md",
+      "triggers": {
+        "fileChangesThreshold": 3,
+        "newFeature": true,
+        "apiChange": true,
+        "schemaChange": true,
+        "configChange": true,
+        "decisionMade": true
+      },
+      "suppressFor": [
+        "typoFix",
+        "commentOnly",
+        "formattingOnly"
+      ]
+    },
+    "dispatch": {
+      "autoClassify": true,
+      "logPath": ".claude/context/dispatch-log.json",
+      "maxDepth": 5,
+      "primaryMethod": "file-path",
+      "secondaryMethod": "keywords"
+    },
+    "coordination": {
+      "siblingVisibility": "summary",
+      "escalationPath": "parent",
+      "parallelExecution": true
+    },
+    "protocolFile": ".claude/rules/hierarchy-protocol.md",
+    "legacyArchive": ".claude/archive/legacy-experts"
+  },
+
+  "cognitiveDNA": {
+    "enabled": true,
+    "description": "Learned patterns that evolve and compound across sessions - 1+1 = exponential",
+    "profilePath": ".claude/context/cognitive-dna/arthur-dna-profile.json",
+    "evolutionEnabled": true,
+    "snapshotsPath": ".claude/context/cognitive-dna/snapshots",
+    "applyStrengths": true,
+    "augmentGaps": true,
+    "triggers": {
+      "captureOnFeedback": true,
+      "captureOnCorrection": true,
+      "captureOnSuccess": true,
+      "endOfSignificantWork": true
+    },
+    "platformPreferences": {
+      "appleNative": true,
+      "localFirst": true,
+      "avoidUnnecessaryCloud": true
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "currentBranch": null,
+  "dispatches": [
+    {
+      "domain": "mj-automation",
+      "timestamp": "2026-01-06T19:46:13Z",
+      "prompt": "test dispatch for batch workflow"
+    }
+  ],
+  "rollUpsPending": 0,
+  "lastRollUp": null,
+  "currentDomain": "mj-automation"
+}

@@ -1,0 +1,10 @@
+100.79.73.73    air        arthur.dell@  macOS  -                                                              
+100.74.169.109  ad-iphone  arthur.dell@  iOS    offline, last seen 35d ago                                     
+100.65.29.44    alpha      arthur.dell@  macOS  active; direct 192.168.70.15:41641, tx 41420156 rx 1996177348  
+100.96.205.78   apple-tv   arthur.dell@  tvOS   offline, last seen 3d ago                                      
+100.84.202.68   beta       arthur.dell@  macOS  active; direct 192.168.70.16:41641, tx 15013144 rx 128345240   
+100.102.59.5    gamma      arthur.dell@  linux  active; direct 192.168.70.55:41641, tx 743448 rx 19803528      
+100.112.71.10   ipad163    arthur.dell@  iOS    offline, last seen 42d ago                                     
+100.77.178.103  yara       arthur.dell@  macOS  offline, last seen 8d ago                                      
+
+# To see the full list of exit nodes, including location-based exit nodes, run `tailscale exit-node list`  

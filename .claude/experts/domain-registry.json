@@ -1,0 +1,129 @@
+{
+  "metadata": {
+    "version": "2.0.0",
+    "generated": "2026-01-07T10:09:45Z",
+    "source": "discovery-scan",
+    "rootExpert": "master-architect",
+    "totalExperts": 3,
+    "discoveryBased": true
+  },
+
+  "tree": {
+    "master-architect": {
+      "id": "master-architect",
+      "type": "root",
+      "level": 0,
+      "path": ".claude/experts/master-architect.md",
+      "children": [
+  "mj-automation",
+  "lm-studio-docs"
+],
+      "contextBudget": 40000
+    },
+    "mj-automation": {
+      "id": "mj-automation",
+      "type": "branch",
+      "level": 1,
+      "path": "mj_automation/.expert/",
+      "domainPath": "mj_automation/",
+      "scope": "mj_automation/",
+      "parent": "master-architect",
+      "children": [],
+      "contextBudget": 30000,
+      "activationPatterns": ["midjourney","mj","image generation","video generation","batch","workflow","themed","linkedin themes","chrome","browser","applescript","automation","download","transfer","rsync","beta storage"]
+    }
+,
+    "lm-studio-docs": {
+      "id": "lm-studio-docs",
+      "type": "branch",
+      "level": 1,
+      "path": "lm-studio-docs/.expert/",
+      "domainPath": "lm-studio-docs/",
+      "scope": "lm-studio-docs/",
+      "parent": "master-architect",
+      "children": [],
+      "contextBudget": 30000,
+      "activationPatterns": ["lm studio","lmstudio","local model","local inference","local llm","chat completion","embedding","inference","alpha model","beta model","nemotron","glm","openai compatible","local api"]
+    }
+  },
+
+  "experts": [
+    {
+      "id": "mj-automation",
+      "name": "Midjourney Web Automation",
+      "path": "mj_automation/.expert/",
+      "domainPath": "mj_automation/",
+      "scope": "mj_automation/",
+      "parent": "master-architect",
+      "level": 1,
+      "contextBudget": 30000,
+      "activationPatterns": "midjourney, mj, image generation, video generation, batch, workflow, themed, linkedin themes, chrome, browser, applescript, automation, download, transfer, rsync, beta storage",
+      "hasContextScope": true,
+      "hasSummary": true
+    },
+    {
+      "id": "lm-studio-docs",
+      "name": "Local Model Inference",
+      "path": "lm-studio-docs/.expert/",
+      "domainPath": "lm-studio-docs/",
+      "scope": "lm-studio-docs/",
+      "parent": "master-architect",
+      "level": 1,
+      "contextBudget": 30000,
+      "activationPatterns": "lm studio, lmstudio, local model, local inference, local llm, chat completion, embedding, inference, alpha model, beta model, nemotron, glm, openai compatible, local api",
+      "hasContextScope": true,
+      "hasSummary": true
+    }
+  ],
+
+  "routing": {
+    "primaryMethod": "file-path",
+    "secondaryMethod": "keywords",
+    "pathMappings": {
+  "mj_automation/": "mj-automation",
+  "lm-studio-docs/": "lm-studio-docs"
+},
+    "keywordMappings": [
+  {
+    "id": "mj-automation",
+    "patterns": [
+      "midjourney",
+      "mj",
+      "image generation",
+      "video generation",
+      "batch",
+      "workflow",
+      "themed",
+      "linkedin themes",
+      "chrome",
+      "browser",
+      "applescript",
+      "automation",
+      "download",
+      "transfer",
+      "rsync",
+      "beta storage"
+    ]
+  },
+  {
+    "id": "lm-studio-docs",
+    "patterns": [
+      "lm studio",
+      "lmstudio",
+      "local model",
+      "local inference",
+      "local llm",
+      "chat completion",
+      "embedding",
+      "inference",
+      "alpha model",
+      "beta model",
+      "nemotron",
+      "glm",
+      "openai compatible",
+      "local api"
+    ]
+  }
+]
+  }
+}

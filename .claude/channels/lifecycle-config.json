@@ -1,0 +1,47 @@
+{
+  "version": "1.0.0",
+  "description": "Channel lifecycle management configuration",
+
+  "thresholds": {
+    "idleAfterDays": 30,
+    "archiveAfterDays": 120,
+    "extendedHoldDays": 90,
+    "pruneAfterDays": 210
+  },
+
+  "affinity": {
+    "mergeThreshold": 0.65,
+    "keywordOverlapWeight": 0.4,
+    "filePatternWeight": 0.3,
+    "dependencyWeight": 0.3
+  },
+
+  "modelDefaults": {
+    "level0": "opus",
+    "level1": "opus",
+    "level2Plus": "sonnet",
+    "lookup": "haiku",
+    "fallback": "sonnet"
+  },
+
+  "activity": {
+    "weights": {
+      "dispatch": 10,
+      "file_modification": 5,
+      "roll_up": 3,
+      "explicit_reference": 2,
+      "pattern_match": 1
+    }
+  },
+
+  "hooks": {
+    "onCreate": ".claude/lib/on-channel-create.sh",
+    "onActivity": ".claude/lib/on-channel-activity.sh",
+    "onPruningCheck": ".claude/lib/on-pruning-check.sh"
+  },
+
+  "notifications": {
+    "warnBeforeArchive": 14,
+    "warnBeforePrune": 7
+  }
+}

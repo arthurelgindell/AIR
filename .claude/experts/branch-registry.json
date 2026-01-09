@@ -1,0 +1,150 @@
+{
+  "metadata": {
+    "version": "1.0.0",
+    "projectName": "ARTHUR",
+    "created": "2026-01-06T00:00:00Z",
+    "lastUpdated": "2026-01-06T00:00:00Z",
+    "rootExpert": "master-architect",
+    "totalExperts": 4,
+    "maxDepth": 1
+  },
+
+  "tree": {
+    "master-architect": {
+      "id": "master-architect",
+      "children": ["backend-expert", "frontend-expert", "infrastructure-expert"]
+    },
+    "backend-expert": {
+      "id": "backend-expert",
+      "children": []
+    },
+    "frontend-expert": {
+      "id": "frontend-expert",
+      "children": []
+    },
+    "infrastructure-expert": {
+      "id": "infrastructure-expert",
+      "children": []
+    }
+  },
+
+  "experts": {
+    "master-architect": {
+      "id": "master-architect",
+      "type": "root",
+      "level": 0,
+      "path": {
+        "domain": "/",
+        "expert": ".claude/experts/master-architect.md",
+        "skill": ".claude/skills/master-architect/SKILL.md",
+        "summary": ".claude/experts/context-rollup/master-summary.md"
+      },
+      "parent": null,
+      "children": ["backend-expert", "frontend-expert", "infrastructure-expert"],
+      "status": "active",
+      "activationPatterns": ["implement", "build", "create", "add feature", "design"],
+      "context": {
+        "maxTokens": 40000,
+        "lastSummaryUpdate": null
+      }
+    },
+
+    "backend-expert": {
+      "id": "backend-expert",
+      "type": "branch",
+      "level": 1,
+      "path": {
+        "domain": "src/backend",
+        "expert": ".claude/skills/branches/backend/expert.md",
+        "skill": ".claude/skills/branches/backend/SKILL.md",
+        "scope": ".claude/skills/branches/backend/context-scope.md",
+        "summary": ".claude/experts/context-rollup/backend-summary.md"
+      },
+      "parent": "master-architect",
+      "children": [],
+      "status": "active",
+      "activationPatterns": ["api", "backend", "server", "database", "service", "endpoint", "REST", "GraphQL"],
+      "context": {
+        "maxTokens": 30000,
+        "lastSummaryUpdate": null
+      }
+    },
+
+    "frontend-expert": {
+      "id": "frontend-expert",
+      "type": "branch",
+      "level": 1,
+      "path": {
+        "domain": "src/frontend",
+        "expert": ".claude/skills/branches/frontend/expert.md",
+        "skill": ".claude/skills/branches/frontend/SKILL.md",
+        "scope": ".claude/skills/branches/frontend/context-scope.md",
+        "summary": ".claude/experts/context-rollup/frontend-summary.md"
+      },
+      "parent": "master-architect",
+      "children": [],
+      "status": "active",
+      "activationPatterns": ["UI", "frontend", "component", "page", "style", "CSS", "React", "view", "form"],
+      "context": {
+        "maxTokens": 30000,
+        "lastSummaryUpdate": null
+      }
+    },
+
+    "infrastructure-expert": {
+      "id": "infrastructure-expert",
+      "type": "branch",
+      "level": 1,
+      "path": {
+        "domain": "infrastructure",
+        "expert": ".claude/skills/branches/infrastructure/expert.md",
+        "skill": ".claude/skills/branches/infrastructure/SKILL.md",
+        "scope": ".claude/skills/branches/infrastructure/context-scope.md",
+        "summary": ".claude/experts/context-rollup/infrastructure-summary.md"
+      },
+      "parent": "master-architect",
+      "children": [],
+      "status": "active",
+      "activationPatterns": ["deploy", "docker", "CI/CD", "pipeline", "config", "environment", "infrastructure", "DevOps"],
+      "context": {
+        "maxTokens": 30000,
+        "lastSummaryUpdate": null
+      }
+    }
+  },
+
+  "dependencies": {
+    "edges": [
+      {
+        "from": "frontend-expert",
+        "to": "backend-expert",
+        "type": "consumes",
+        "description": "Frontend consumes backend API endpoints"
+      },
+      {
+        "from": "infrastructure-expert",
+        "to": "backend-expert",
+        "type": "deploys",
+        "description": "Infrastructure deploys backend services"
+      },
+      {
+        "from": "infrastructure-expert",
+        "to": "frontend-expert",
+        "type": "deploys",
+        "description": "Infrastructure deploys frontend assets"
+      }
+    ],
+    "contracts": []
+  },
+
+  "health": {
+    "lastHealthCheck": null,
+    "overallStatus": "healthy",
+    "expertStatuses": {
+      "master-architect": "active",
+      "backend-expert": "active",
+      "frontend-expert": "active",
+      "infrastructure-expert": "active"
+    }
+  }
+}

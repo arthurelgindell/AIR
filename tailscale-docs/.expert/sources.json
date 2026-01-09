@@ -1,0 +1,95 @@
+{
+  "version": "1.0.0",
+  "channel": "tailscale",
+  "description": "Tailscale documentation and live network state",
+  "lastGlobalRefresh": null,
+
+  "sources": [
+    {
+      "id": "kb-acls",
+      "type": "web",
+      "name": "Tailscale ACL Documentation",
+      "url": "https://tailscale.com/kb/1018/acls",
+      "outputFile": "kb-acls.md",
+      "cadence": "weekly",
+      "extractor": "html-to-markdown",
+      "lastFetched": null,
+      "lastSuccess": null,
+      "lastError": null,
+      "enabled": true
+    },
+    {
+      "id": "kb-cli",
+      "type": "web",
+      "name": "Tailscale CLI Reference",
+      "url": "https://tailscale.com/kb/1080/cli",
+      "outputFile": "kb-cli.md",
+      "cadence": "weekly",
+      "extractor": "html-to-markdown",
+      "lastFetched": null,
+      "lastSuccess": null,
+      "lastError": null,
+      "enabled": true
+    },
+    {
+      "id": "kb-serve",
+      "type": "web",
+      "name": "Tailscale Serve Documentation",
+      "url": "https://tailscale.com/kb/1242/tailscale-serve",
+      "outputFile": "kb-serve.md",
+      "cadence": "weekly",
+      "extractor": "html-to-markdown",
+      "lastFetched": null,
+      "lastSuccess": null,
+      "lastError": null,
+      "enabled": true
+    },
+    {
+      "id": "kb-ssh",
+      "type": "web",
+      "name": "Tailscale SSH Documentation",
+      "url": "https://tailscale.com/kb/1193/tailscale-ssh",
+      "outputFile": "kb-ssh.md",
+      "cadence": "weekly",
+      "extractor": "html-to-markdown",
+      "lastFetched": null,
+      "lastSuccess": null,
+      "lastError": null,
+      "enabled": true
+    },
+    {
+      "id": "node-status",
+      "type": "command",
+      "name": "Tailscale Node Status",
+      "command": "tailscale status",
+      "outputFile": "node-status.txt",
+      "cadence": "hourly",
+      "extractor": "raw",
+      "lastFetched": null,
+      "lastSuccess": null,
+      "lastError": null,
+      "enabled": true
+    },
+    {
+      "id": "serve-status",
+      "type": "command",
+      "name": "Tailscale Serve Status",
+      "command": "tailscale serve status 2>/dev/null || echo 'No serve config'",
+      "outputFile": "serve-status.txt",
+      "cadence": "hourly",
+      "extractor": "raw",
+      "lastFetched": null,
+      "lastSuccess": null,
+      "lastError": null,
+      "enabled": true
+    }
+  ],
+
+  "metadata": {
+    "created": "2026-01-08T04:48:00Z",
+    "modified": null,
+    "refreshCount": 0,
+    "successCount": 0,
+    "errorCount": 0
+  }
+}

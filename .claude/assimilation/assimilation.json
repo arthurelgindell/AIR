@@ -1,0 +1,57 @@
+{
+  "version": "1.0.0",
+  "description": "Documentation assimilation configuration",
+  "projectRoot": "/Users/arthurdell/ARTHUR",
+
+  "channels": {
+    "claude-code": {
+      "docsDir": "claude-code-docs",
+      "sourcesFile": ".expert/sources.json",
+      "enabled": true
+    },
+    "lm-studio": {
+      "docsDir": "lm-studio-docs",
+      "sourcesFile": ".expert/sources.json",
+      "enabled": true
+    },
+    "tailscale": {
+      "docsDir": "tailscale-docs",
+      "sourcesFile": ".expert/sources.json",
+      "enabled": true
+    }
+  },
+
+  "defaults": {
+    "refreshCadence": "weekly",
+    "timeoutSeconds": 30,
+    "retryAttempts": 3,
+    "retryDelaySeconds": 5,
+    "userAgent": "ARTHUR-Docs-Assimilation/1.0"
+  },
+
+  "extractors": {
+    "html-to-markdown": {
+      "command": "pandoc -f html -t markdown",
+      "fallback": "raw"
+    },
+    "api-json": {
+      "parser": "jq",
+      "defaultTransform": "."
+    },
+    "raw": {
+      "passthrough": true
+    }
+  },
+
+  "logging": {
+    "logDir": "logs",
+    "logFile": "assimilation.log",
+    "errorFile": "assimilation.error.log",
+    "retentionDays": 30
+  },
+
+  "launchAgent": {
+    "label": "com.arthur.docs-assimilation",
+    "plistPath": "~/Library/LaunchAgents/com.arthur.docs-assimilation.plist"
+  }
+}

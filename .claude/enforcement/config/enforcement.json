@@ -1,0 +1,121 @@
+{
+  "version": "1.0.0",
+  "enabled": true,
+  "mode": "strict",
+  "projectRoot": "/Users/arthurdell/ARTHUR",
+  "contextDir": "/Users/arthurdell/ARTHUR/.claude/context",
+
+  "enforcement": {
+    "statePersistence": {
+      "enabled": true,
+      "level": "hard",
+      "blockOnStale": true,
+      "warnThreshold": 5,
+      "blockThreshold": 10,
+      "requiredFiles": [
+        "progress.md",
+        "decisions.md",
+        "important-context.md"
+      ],
+      "decisionsRequiredFor": [
+        "architecture",
+        "framework",
+        "dependency",
+        "api-design",
+        "schema-change"
+      ]
+    },
+
+    "cognitiveDNA": {
+      "enabled": true,
+      "level": "hard",
+      "profilePath": "/Users/arthurdell/ARTHUR/.claude/context/cognitive-dna/arthur-dna-profile.json",
+      "appleSiliconEnforcement": {
+        "enabled": true,
+        "blockedPatterns": [
+          "torch.cuda",
+          ".cuda()",
+          "cuda:0",
+          "cuda:1",
+          "CUDA",
+          "cudnn",
+          "nvidia",
+          "nccl",
+          "torch.device('cuda')",
+          "torch.device(\"cuda\")"
+        ],
+        "requiredAlternatives": {
+          "pytorch": "torch.device('mps')",
+          "inference": "CoreML",
+          "training": "MLX",
+          "compute": "Metal"
+        }
+      },
+      "gapAugmentation": {
+        "security": {
+          "triggerPatterns": ["auth", "password", "token", "api_key", "credential"],
+          "action": "warn"
+        },
+        "performance": {
+          "triggerPatterns": ["loop", "query", "batch", "iterate"],
+          "action": "warn"
+        },
+        "testing": {
+          "triggerPatterns": ["feature", "fix", "refactor"],
+          "action": "warn"
+        }
+      }
+    },
+
+    "hetaRouting": {
+      "enabled": true,
+      "level": "soft",
+      "masterArchitectTriggers": [
+        "implement",
+        "build",
+        "create",
+        "add feature",
+        "add endpoint",
+        "refactor",
+        "migrate"
+      ],
+      "branches": {
+        "backend": {
+          "keywords": ["api", "backend", "server", "database", "service", "endpoint"],
+          "scope": "src/backend/**"
+        },
+        "frontend": {
+          "keywords": ["ui", "frontend", "component", "page", "style", "react"],
+          "scope": "src/frontend/**"
+        },
+        "infrastructure": {
+          "keywords": ["deploy", "config", "ci/cd", "docker", "environment"],
+          "scope": "infrastructure/**"
+        }
+      },
+      "rollUpThreshold": 3,
+      "contextIsolation": true
+    }
+  },
+
+  "bypass": {
+    "envVariable": "ARTHUR_ENFORCEMENT_BYPASS",
+    "bypassFile": "/Users/arthurdell/ARTHUR/.claude/enforcement/.bypass",
+    "maxDurationSeconds": 3600,
+    "requireReason": true
+  },
+
+  "recovery": {
+    "enabled": true,
+    "autoRecoverState": true,
+    "sources": ["git", "archive", "template"],
+    "archiveDir": "/Users/arthurdell/ARTHUR/.claude/context/archive"
+  },
+
+  "logging": {
+    "enabled": true,
+    "violationLog": "/Users/arthurdell/ARTHUR/.claude/enforcement/state/violation-log.json",
+    "modificationLog": "/Users/arthurdell/ARTHUR/.claude/enforcement/state/modification-log.json",
+    "retentionDays": 30
+  }
+}

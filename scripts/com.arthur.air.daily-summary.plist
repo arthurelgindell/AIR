@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.arthur.air.daily-summary</string>
+
+    <key>ProgramArguments</key>
+    <array>
+        <string>/usr/bin/python3</string>
+        <string>/Users/arthurdell/ARTHUR/scripts/send_daily_summary.py</string>
+    </array>
+
+    <key>StartCalendarInterval</key>
+    <dict>
+        <key>Hour</key>
+        <integer>8</integer>
+        <key>Minute</key>
+        <integer>0</integer>
+    </dict>
+
+    <key>EnvironmentVariables</key>
+    <dict>
+        <key>POSTMARK_SERVER_TOKEN</key>
+        <string>f7faf945-5e82-48b2-bc11-a637cf113bc9</string>
+        <key>PATH</key>
+        <string>/usr/local/bin:/usr/bin:/bin</string>
+        <key>NODE_ID</key>
+        <string>AIR</string>
+    </dict>
+
+    <key>WorkingDirectory</key>
+    <string>/Users/arthurdell/ARTHUR</string>
+
+    <key>StandardOutPath</key>
+    <string>/Users/arthurdell/ARTHUR/logs/air-daily-summary.log</string>
+
+    <key>StandardErrorPath</key>
+    <string>/Users/arthurdell/ARTHUR/logs/air-daily-summary.err</string>
+
+    <key>RunAtLoad</key>
+    <false/>
+
+    <key>Nice</key>
+    <integer>1</integer>
+</dict>
+</plist>

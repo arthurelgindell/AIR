@@ -1,0 +1,63 @@
+{
+  "version": "2.0.0",
+  "description": "Configuration for dynamic channel discovery with model assignment",
+
+  "discovery": {
+    "markerFolder": ".expert",
+    "requiredFiles": ["expert.md"],
+    "optionalFiles": ["context-scope.md", "summary.md", "sources.json"],
+    "scanRoot": "/Users/arthurdell/ARTHUR",
+    "scanDepth": 5,
+    "cacheRegistry": true,
+    "cacheFile": "domain-registry.json",
+    "channelRegistryFile": "../channels/channel-registry.json"
+  },
+
+  "excludePaths": [
+    "node_modules",
+    "__pycache__",
+    ".git",
+    "venv",
+    ".venv",
+    "env",
+    ".env",
+    "dist",
+    "build",
+    ".cache",
+    ".claude/archive"
+  ],
+
+  "parsing": {
+    "extractPatterns": true,
+    "extractModelAssignment": true,
+    "extractDependencies": true,
+    "extractSources": true,
+    "patternDelimiter": ","
+  },
+
+  "hierarchy": {
+    "rootExpert": "master-architect",
+    "levelFromNesting": true,
+    "maxLevels": 5
+  },
+
+  "modelDefaults": {
+    "level0": "opus",
+    "level1": "opus",
+    "level2Plus": "sonnet",
+    "lookup": "haiku",
+    "fallback": "sonnet"
+  },
+
+  "routing": {
+    "primaryMethod": "file-path",
+    "secondaryMethod": "keywords",
+    "fallbackToMaster": true
+  },
+
+  "lifecycle": {
+    "enabled": true,
+    "configFile": "../channels/lifecycle-config.json",
+    "activityLog": "../channels/activity-log.json"
+  }
+}

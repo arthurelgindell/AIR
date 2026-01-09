@@ -1,0 +1,18 @@
+{
+  "channelId": "claude-code",
+  "folder": "claude-code-docs",
+  "state": "active",
+  "created": "2026-01-08T00:56:09Z",
+  "lastActivity": "2026-01-08T12:20:24Z",
+  "activityScore": 10,
+  "stateHistory": [
+    {
+      "state": "discovered",
+      "timestamp": "2026-01-08T00:56:09Z"
+    },
+    {
+      "state": "active",
+      "timestamp": "2026-01-08T00:56:09Z"
+    }
+  ]
+}

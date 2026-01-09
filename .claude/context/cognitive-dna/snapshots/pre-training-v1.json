@@ -1,0 +1,195 @@
+{
+  "name": "pre-training-v1",
+  "timestamp": "2025-12-24T08:29:19.235Z",
+  "profile": {
+    "identity": {
+      "workingStyle": "pragmatic & iterative",
+      "coreValues": [
+        "Systematic planning",
+        "Quality over speed",
+        "Evidence-based decisions",
+        "Clear communication"
+      ],
+      "signaturePhrases": [
+        "Can you provide a code example?",
+        "Please explain in detail",
+        "I have several questions"
+      ],
+      "overallSuccessRate": 0.7711610685017948
+    },
+    "strengths": [
+      {
+        "area": "Apple Silicon Native Development",
+        "description": "Strong preference for native Apple Silicon optimization",
+        "confidence": 0.95,
+        "evidence": 100,
+        "examples": [
+          "prefer-swift-ffi",
+          "prefer-metal-gpu",
+          "prefer-coreml"
+        ],
+        "application": "Always use native Apple Silicon capabilities - Metal GPU, CoreML, Swift FFI"
+      },
+      {
+        "area": "Technical Expertise",
+        "description": "Strong devops capabilities",
+        "confidence": 0.737,
+        "evidence": 431,
+        "examples": [
+          "native-swift-development",
+          "apple-silicon-optimization"
+        ],
+        "application": "Leverage devops knowledge in solutions"
+      },
+      {
+        "area": "Communication Style",
+        "description": "Context-rich, example-driven collaboration",
+        "confidence": 0.7266666666666667,
+        "evidence": 13057,
+        "examples": [
+          "prefers-detailed-explanations",
+          "requests-code-examples",
+          "asks-multiple-questions"
+        ],
+        "application": "Always provide code examples and detailed explanations"
+      },
+      {
+        "area": "Problem-Solving Methodology",
+        "description": "Systematic, validation-focused approach",
+        "confidence": 0.725,
+        "evidence": 10582,
+        "examples": [
+          "sequential-methodology",
+          "emphasizes-testing"
+        ],
+        "application": "Structure solutions with clear sequential steps and validation"
+      },
+      {
+        "area": "Project Management",
+        "description": "Agile iterative development with milestones",
+        "confidence": 0.7344999999999999,
+        "evidence": 1304,
+        "examples": [
+          "iterative-development",
+          "milestone-based-tracking"
+        ],
+        "application": "Break work into iterations with clear milestones"
+      }
+    ],
+    "limitations": [
+      {
+        "area": "Frontend",
+        "description": "Limited historical evidence for frontend decisions",
+        "confidence": 0.727,
+        "evidence": 2,
+        "augmentationStrategy": "Provide React/Vue best practices, component patterns, and UI/UX guidance proactively",
+        "priority": "medium"
+      },
+      {
+        "area": "Security",
+        "description": "Limited historical evidence for security decisions",
+        "confidence": 0.5,
+        "evidence": 0,
+        "augmentationStrategy": "Include OWASP Top 10 review, authentication best practices, and vulnerability checklist",
+        "priority": "high"
+      },
+      {
+        "area": "Performance",
+        "description": "Limited historical evidence for performance decisions",
+        "confidence": 0.5,
+        "evidence": 0,
+        "augmentationStrategy": "Suggest profiling approaches, optimization strategies, and performance budgets",
+        "priority": "high"
+      },
+      {
+        "area": "Testing",
+        "description": "Limited historical evidence for testing decisions",
+        "confidence": 0.5,
+        "evidence": 0,
+        "augmentationStrategy": "Recommend TDD approach, testing pyramids, and coverage goals",
+        "priority": "high"
+      },
+      {
+        "area": "Rapid Prototyping",
+        "description": "Systematic approach may delay quick experiments",
+        "confidence": 0.65,
+        "evidence": 0,
+        "augmentationStrategy": "Suggest time-boxed spikes for novel technologies before full planning",
+        "priority": "medium"
+      }
+    ],
+    "preferences": {
+      "communication": [
+        "Detailed explanations with context",
+        "Code examples with explanations",
+        "Interactive Q&A approach"
+      ],
+      "technical": [
+        "SWIFT",
+        "METAL_GPU",
+        "COREML",
+        "SQLITE",
+        "APPLE_SILICON_NATIVE"
+      ],
+      "process": [
+        "Sequential problem-solving",
+        "Testing and validation emphasis",
+        "Iterative development cycles"
+      ],
+      "platform": {
+        "current": {
+          "target": "Apple Silicon",
+          "hardware": "M3 Ultra",
+          "memory": "256GB Unified",
+          "gpu": "Metal with 10 compiled kernels",
+          "neural": "CoreML Neural Engine 16 cores"
+        },
+        "note": "Platform preferences are contextual, not exclusionary"
+      }
+    },
+    "feedback": {
+      "sessions": [
+        {
+          "id": "session_1766564944644_38zda2qei",
+          "timestamp": "2025-12-24T08:29:04.644Z",
+          "rating": 5,
+          "note": "Successfully built complete feedback loop system",
+          "activity": "DNA-pipeline-creation",
+          "highlights": [
+            "Alpaca conversion working",
+            "3823 training examples"
+          ],
+          "failures": [],
+          "metadata": {
+            "platform": "darwin",
+            "nodeVersion": "v22.19.0"
+          }
+        }
+      ],
+      "lastUpdated": "2025-12-24T08:29:04.645Z",
+      "totalRatings": 1,
+      "averageRating": 5
+    },
+    "evolution": {
+      "versionHistory": [],
+      "lastTrainingData": null,
+      "patternDrift": []
+    },
+    "metadata": {
+      "version": "2.0.0",
+      "created": "2025-12-11T16:11:15.081Z",
+      "lastModified": "2025-12-24T08:29:19.033Z",
+      "sourcePatterns": 29,
+      "confidenceRange": {
+        "min": null,
+        "max": null,
+        "avg": null
+      },
+      "evidenceRange": {
+        "min": null,
+        "max": null,
+        "total": null
+      }
+    }
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "version": "1.0.0",
+  "description": "Channel activity tracking log",
+  "entries": [],
+  "summary": {
+    "byChannel": {},
+    "lastUpdated": null
+  },
+  "events": [
+    {
+      "timestamp": "2026-01-08T12:20:24Z",
+      "channel": "claude-code",
+      "type": "dispatch",
+      "weight": 10,
+      "details": "What is 2+2?"
+    }
+  ]
+}

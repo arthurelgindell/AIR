@@ -1,0 +1,26 @@
+{
+  "name": "arthur-services",
+  "version": "2.0.0",
+  "description": "ARTHUR Services - TypeScript/Bun runtime for Expert API and Automation",
+  "module": "src/index.ts",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "start": "bun run src/index.ts",
+    "dev": "bun --hot run src/index.ts",
+    "api": "bun run src/index.ts",
+    "tailscale": "bun run src/automation/tailscale.ts",
+    "midjourney": "bun run src/automation/midjourney.ts",
+    "midjourney:video": "bun run src/automation/midjourney.ts --video",
+    "test": "bun test",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@types/bun": "^1.3.5",
+    "typescript": "^5.9.3"
+  },
+  "dependencies": {
+    "@hono/node-server": "^1.19.7",
+    "hono": "^4.11.3"
+  }
+}

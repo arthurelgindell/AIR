@@ -1,0 +1,24 @@
+{
+  "batch_id": "cosmic_themes_001",
+  "themes": [
+    {
+      "id": "cosmic_dawn",
+      "image_prompts": [
+        "ethereal sunrise over alien landscape, bioluminescent flora, cinematic --ar 16:9 --v 6.1",
+        "cosmic nebula with glowing particles, volumetric lighting --ar 16:9 --v 6.1"
+      ]
+    },
+    {
+      "id": "ocean_depths",
+      "image_prompts": [
+        "deep ocean bioluminescence, ancient underwater ruins --ar 16:9 --v 6.1",
+        "ethereal jellyfish swarm, neon glow, dark waters --ar 16:9 --v 6.1"
+      ]
+    }
+  ],
+  "output": {
+    "remote_host": "beta",
+    "images_path": "/Volumes/STUDIO/IMAGES",
+    "video_path": "/Volumes/STUDIO/VIDEO"
+  }
+}

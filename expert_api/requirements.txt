@@ -1,0 +1,10 @@
+# ARTHUR Expert Channel API Dependencies
+
+# FastAPI framework
+fastapi>=0.104.0
+
+# ASGI server
+uvicorn[standard]>=0.24.0
+
+# Pydantic for data validation (included with FastAPI but pinned for clarity)
+pydantic>=2.5.0

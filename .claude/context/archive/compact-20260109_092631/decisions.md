@@ -1,0 +1,343 @@
+# Architectural Decisions Log
+
+**Project:** ARTHUR
+**Started:** 2026-01-06
+
+---
+
+## Decision Log
+
+### 2026-01-06: Initial Claude Code Configuration
+
+**Context:** Setting up project for vibe coding with maximum autonomous operation.
+
+**Decision:** Implemented reference-grade Claude Code configuration with:
+- Filesystem-based state persistence (trust disk over compaction)
+- CLEAR framework for prompt clarification
+- Maximum autonomy mode with safety guardrails
+- Auto-accept for most file operations
+- Confirmation required for destructive operations
+
+**Rationale:** This approach optimizes for flow state while maintaining safety through smart defaults and filesystem persistence for context recovery.
+
+**Consequences:**
+- Lower friction during development
+- State persists across context resets
+- Recovery is straightforward via filesystem
+
+---
+
+### 2026-01-06: Adopted Bulletproof Manifesto
+
+**Context:** Establishing core operating philosophy for the project and collaboration.
+
+**Decision:** Integrated the Bulletproof Manifesto as the foundational philosophy:
+- Results over intentions
+- Verification over assumption
+- Recovery over perfection
+- Honesty over comfort
+- Simplicity over cleverness
+
+**Rationale:** These principles align with building robust, recoverable systems. They establish clear expectations: no hope-speak, no performance art, only results that hold under scrutiny.
+
+**Consequences:**
+- All work measured by provable results
+- Failures treated as feedback, not identity
+- End-to-end verification before declaring "done"
+- Truth delivered directly, even when uncomfortable
+
+**THIS IS THE WAY.**
+
+---
+
+### 2026-01-06: Implemented Hierarchical Expert Tree Architecture (HETA)
+
+**Context:** Need a system for routing tasks to domain-specific experts with context isolation and roll-up summaries.
+
+**Decision:** Implemented HETA with:
+- Master Architect as root orchestrator
+- Three branch experts: Backend, Frontend, Infrastructure
+- Skill-based routing with auto-classification
+- Context isolation via scope files
+- Auto-generated roll-up summaries
+
+**Key Design Choices:**
+- Branch experts activated via dispatch from Master Architect
+- Context budgets: Master 40k, Branch 30k, Specialist 20k tokens
+- Roll-up triggered on 3+ file changes or significant events
+- Cross-branch coordination flows through Master Architect only
+
+**File Structure:**
+```
+.claude/
+├── experts/                 # Expert tree management
+│   ├── master-architect.md  # Root directives
+│   ├── branch-registry.json # Tree registry
+│   └── context-rollup/      # Roll-up summaries
+├── skills/
+│   ├── master-architect/    # Routing skill
+│   └── branches/            # Domain experts
+│       ├── _template/       # Reusable template
+│       ├── backend/         # Backend expert
+│       ├── frontend/        # Frontend expert
+│       └── infrastructure/  # Infra expert
+├── commands/
+│   ├── dispatch.md          # Manual routing
+│   └── tree-status.md       # Hierarchy view
+└── rules/
+    └── hierarchy-protocol.md # Protocol rules
+```
+
+**Consequences:**
+- Tasks automatically route to correct domain expert
+- Branch experts focus deeply without context pollution
+- Cross-domain work requires explicit coordination
+- Scalable pattern for adding new branches/specialists
+
+---
+
+### 2026-01-06: Integrated Cognitive DNA System
+
+**Context:** Establishing continuous learning and pattern evolution across sessions.
+
+**Decision:** Integrated Cognitive DNA from SPHERE teleport package:
+- Copied arthur-dna-profile.json (94.18% success rate, 14 feedback sessions)
+- Created dna-evolution skill for continuous learning
+- Created /dna-feedback and /dna-status commands
+- Integrated DNA patterns into all HETA branch experts
+- Added cognitiveDNA configuration section to settings.json
+
+**Key DNA Patterns Applied:**
+| Strength | Confidence | Application |
+|----------|------------|-------------|
+| Apple Silicon Native | 95% | Always Metal, CoreML, MLX - never CUDA |
+| DevOps | 73.7% | IaC, native tooling, SQLite local-first |
+| Communication | 72.7% | Code examples + detailed explanations |
+| Problem-Solving | 72.5% | Sequential steps with validation |
+
+**Gap Augmentation Strategy:**
+- Security (50%): Proactive OWASP Top 10 inclusion
+- Performance (50%): Suggest profiling and benchmarks
+- Testing (50%): Recommend TDD, provide templates
+
+**Rationale:** Pattern learning compounds across sessions. Each interaction improves future interactions. 1+1 = exponential.
+
+**Consequences:**
+- Branch experts now apply DNA-informed behavior automatically
+- Gaps are proactively augmented without user asking
+- Platform preferences (M3 Ultra, Metal, CoreML) applied by default
+- Learning evolves through feedback capture
+
+---
+
+### 2026-01-06: Removed Docker from Toolchain
+
+**Context:** User preference to use native tooling over containerization.
+
+**Decision:** Struck Docker references from all configuration:
+- Removed from infrastructure expert technology stack
+- Replaced with native process management (launchd/systemd)
+- Updated DevOps references to "native tooling"
+
+**Rationale:** Aligns with local-first, Apple Silicon native philosophy. Native tooling provides better performance and integration on M3 Ultra platform.
+
+**Consequences:**
+- Infrastructure expert now focuses on native service management
+- No container overhead for local development
+- Better Metal GPU and CoreML integration without container barriers
+
+---
+
+*Append new decisions chronologically. Never delete entries.*
+
+### Compaction: 2026-01-07 00:06:25
+
+**Context compacted.** State preserved to archive.
+- Tool calls: 0
+- Modifications: 0
+- Archive: compact-20260107_000625
+
+
+### Compaction: 2026-01-07 13:29:40
+
+**Context compacted.** State preserved to archive.
+- Tool calls: 0
+- Modifications: 0
+- Archive: compact-20260107_132940
+
+
+### Compaction: 2026-01-07 21:51:27
+
+**Context compacted.** State preserved to archive.
+- Tool calls: 119
+- Modifications: 3
+- Archive: compact-20260107_215127
+
+
+### Compaction: 2026-01-07 22:00:05
+
+**Context compacted.** State preserved to archive.
+- Tool calls: 10
+- Modifications: 0
+- Archive: compact-20260107_220005
+
+
+### Compaction: 2026-01-08 04:49:25
+
+**Context compacted.** State preserved to archive.
+- Tool calls: 60
+- Modifications: 10
+- Archive: compact-20260108_044925
+
+
+### 2026-01-08: Integrated Claude Code v2.1.1 Enhancements
+
+**Context:** Claude Code v2.1.1 release includes significant workflow improvements. Needed to evaluate and integrate beneficial features into ARTHUR.
+
+**Decision:** Integrated 5 key v2.1.1 enhancements:
+
+1. **Forked Skill Contexts (`context: fork`):**
+   - Applied to: context-manager, dna-evolution, enforcement-manager
+   - Kept in main context: architect, master-architect (need visibility)
+   - Rationale: Heavy computation skills run isolated, preserving main context
+
+2. **respectGitignore Setting:**
+   - Set to `true` for cleaner @ file picker
+   - Hides node_modules, __pycache__, build artifacts
+
+3. **Wildcard Bash Permissions:**
+   - Added: `git *`, `npm *`, `python *`, `node *`
+   - Replaced specific commands (git status, git log, etc.)
+   - Enables broader auto-accept while maintaining safety
+
+4. **Remote Environment Detection:**
+   - Added `detect_remote_mode()` to session-enforcer.sh
+   - Uses `CLAUDE_CODE_REMOTE` env var
+   - Prepares for Claude Code web integration
+
+5. **Comprehensive Documentation:**
+   - Created `.claude/docs/claude-code-2.1.1-features.md`
+   - Updated CLAUDE.md with v2.1.1 section
+   - Documents keyboard shortcuts, teleport, streamer mode
+
+**Key Insight from Research:**
+- /teleport is unidirectional (web → local only)
+- SSH support for bidirectional teleporting requested but not implemented
+- Workaround: Use `--resume` with session ID on remote machines
+
+**Consequences:**
+- Skills execute in isolation → cleaner main context
+- File picker shows only relevant files
+- Git/npm/python/node commands auto-accepted
+- Ready for Claude Code web when used
+- Full feature reference available in docs
+
+
+### Compaction: 2026-01-08 14:05:29
+
+**Context compacted.** State preserved to archive.
+- Tool calls: 12
+- Modifications: 10
+- Archive: compact-20260108_140529
+
+
+### 2026-01-08: Expert Channel Service API
+
+**Context:** Need to expose expert skills (Claude Code, LM Studio, Tailscale) as HTTP services accessible via Tailscale, with Claude Code agents triggered remotely.
+
+**Decision:** Built FastAPI-based HTTP API with async task execution:
+
+1. **Host Selection:** AIR node (command center)
+   - Rationale: Central hub for all expert services, GUI access
+
+2. **URL Pattern:** Path-based routing on single hostname
+   - `https://air.tail5f2bae.ts.net/{channel}/task`
+   - Rationale: Simpler than subdomains, no DNS/Funnel required
+
+3. **Async Model:** Submit → task_id → poll for results
+   - Rationale: Claude Code headless can take minutes, HTTP would timeout
+
+4. **Authentication:** Tailscale identity headers only
+   - `Tailscale-User-Login` header for request attribution
+   - Rationale: Within tailnet, no additional auth needed
+
+5. **Execution:** `claude -p` headless mode with JSON output
+   - Tasks execute in PROJECT_ROOT with full ARTHUR context
+   - Background workers prevent blocking
+
+**Technology Stack:**
+- Python FastAPI + uvicorn
+- In-memory task store (future: Redis for persistence)
+- Tailscale serve for HTTPS termination
+
+**Files Created:**
+```
+expert_api/
+├── server.py        # FastAPI application
+├── service.sh       # Service management
+├── requirements.txt # Dependencies
+└── README.md        # Documentation
+```
+
+**Consequences:**
+- Expert channels accessible from any tailnet node
+- Tasks execute with full Claude Code capabilities
+- Activity tracking integrated with channel lifecycle
+- Extensible for future expert channels
+
+
+### Compaction: 2026-01-08 15:24:35
+
+**Context compacted.** State preserved to archive.
+- Tool calls: 21
+- Modifications: 10
+- Archive: compact-20260108_152435
+
+
+### 2026-01-08: Terminal Upgrade - Ghostty
+
+**Context:** macOS Terminal.app lacks native Shift+Enter support and GPU acceleration. Claude Code v2.1.1 works best with modern terminals.
+
+**Decision:** Installed Ghostty 1.2.3 as primary terminal for Claude Code:
+
+1. **Why Ghostty:**
+   - Metal GPU acceleration (4x faster than iTerm2)
+   - Native Shift+Enter support (no conflicts with Kitty protocol)
+   - Quick Terminal drop-down feature (Cmd+`)
+   - Native macOS integration (Swift/AppKit, dark mode sync)
+   - Fastest plain-text IO performance in benchmarks
+
+2. **Configuration:**
+   - Created `~/.config/ghostty/config` with Claude-optimized settings
+   - Added shell aliases in `~/.zshrc.d/claude-optimizations.zsh`
+
+3. **Alternatives Evaluated:**
+   | Terminal | Pros | Cons |
+   |----------|------|------|
+   | iTerm2 | Best tmux integration | No GPU, Shift+Enter conflicts |
+   | WezTerm | Lua programmable, built-in mux | Less macOS-native feel |
+   | Kitty | Best graphics protocol | Opinionated keyboard protocol |
+   | **Ghostty** | Metal, native macOS, Quick Terminal | Newest (smaller community) |
+
+4. **Baseline Performance:**
+   - Claude Code CLI startup: 0.37s (cold)
+   - API call with echo: ~13s (expected, includes API round-trip)
+
+**Files Created:**
+- `~/.config/ghostty/config` - Ghostty configuration
+- `~/.zshrc.d/claude-optimizations.zsh` - Shell aliases
+
+**Consequences:**
+- Native Shift+Enter for multi-line prompts
+- Smooth scrolling on long Claude outputs
+- Quick Terminal access from any app (Cmd+`)
+- macOS dark/light mode automatically synced
+
+
+### Compaction: 2026-01-08 20:51:58
+
+**Context compacted.** State preserved to archive.
+- Tool calls: 34
+- Modifications: 10
+- Archive: compact-20260108_205158
+

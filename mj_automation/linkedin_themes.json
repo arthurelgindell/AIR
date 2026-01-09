@@ -1,0 +1,131 @@
+{
+  "batch_id": "linkedin_professional_001",
+  "description": "Professional LinkedIn content - thought leadership and business themes",
+  "themes": [
+    {
+      "id": "leadership_vision",
+      "name": "Leadership & Vision",
+      "image_prompts": [
+        "confident business leader standing at panoramic office window overlooking city skyline, morning golden hour light, cinematic depth of field, professional atmosphere --ar 16:9 --v 6.1",
+        "diverse executive team in modern boardroom, collaborative discussion, natural lighting, professional corporate photography style --ar 16:9 --v 6.1"
+      ],
+      "video_prompt": "business leader walking through modern office space, purposeful stride, morning light streaming through windows, professional atmosphere --ar 16:9",
+      "motion_mode": "low"
+    },
+    {
+      "id": "innovation_tech",
+      "name": "Innovation & Technology",
+      "image_prompts": [
+        "futuristic holographic data visualization floating above sleek desk, professional touching interface, blue and white color palette, clean minimal office background --ar 16:9 --v 6.1",
+        "abstract representation of AI neural network, glowing nodes and connections, dark background with blue accents, corporate tech aesthetic --ar 16:9 --v 6.1"
+      ],
+      "video_prompt": "abstract digital transformation visualization, data streams flowing and connecting, subtle motion, corporate tech aesthetic --ar 16:9",
+      "motion_mode": "low"
+    },
+    {
+      "id": "teamwork_collaboration",
+      "name": "Teamwork & Collaboration",
+      "image_prompts": [
+        "diverse professional team working together at large collaborative table, creative brainstorming session, modern open office, warm natural lighting --ar 16:9 --v 6.1",
+        "hands joining together over business documents, symbolizing partnership and unity, shallow depth of field, professional lighting --ar 16:9 --v 6.1"
+      ],
+      "video_prompt": "team members walking together through modern office corridor, engaged in animated discussion, professional and dynamic --ar 16:9",
+      "motion_mode": "low"
+    },
+    {
+      "id": "growth_success",
+      "name": "Growth & Success",
+      "image_prompts": [
+        "abstract ascending graph made of light particles, upward trajectory, dark blue background with gold accents, professional business visualization --ar 16:9 --v 6.1",
+        "professional celebrating achievement, subtle fist pump, modern office background, warm golden hour lighting, authentic joy --ar 16:9 --v 6.1"
+      ],
+      "video_prompt": "abstract growth visualization, organic upward flowing motion, particles of light ascending, inspirational business aesthetic --ar 16:9",
+      "motion_mode": "high"
+    },
+    {
+      "id": "global_connection",
+      "name": "Global Connection",
+      "image_prompts": [
+        "stylized world map with glowing connection lines between cities, dark background, blue and white corporate color scheme, network visualization --ar 16:9 --v 6.1",
+        "professional video conference with multiple participants on screen, diverse global team, modern home office setup, natural lighting --ar 16:9 --v 6.1"
+      ],
+      "video_prompt": "abstract globe slowly rotating, connection lines pulsing between continents, data flowing, global business network aesthetic --ar 16:9",
+      "motion_mode": "low"
+    },
+    {
+      "id": "sustainability_future",
+      "name": "Sustainability & Future",
+      "image_prompts": [
+        "modern sustainable office building with living green walls, clear blue sky, architectural photography style, environmental business aesthetic --ar 16:9 --v 6.1",
+        "abstract tree growing from circuit board, organic meets digital, green and blue color palette, corporate sustainability symbolism --ar 16:9 --v 6.1"
+      ],
+      "video_prompt": "time lapse style growth of green plant in modern office, sunlight shifting, life and growth symbolism --ar 16:9",
+      "motion_mode": "low"
+    },
+    {
+      "id": "professional_development",
+      "name": "Professional Development",
+      "image_prompts": [
+        "professional reading book in modern library setting, warm ambient lighting, focused concentration, self-improvement theme --ar 16:9 --v 6.1",
+        "abstract staircase ascending into clouds, minimalist design, symbolizing career growth, professional aspiration visualization --ar 16:9 --v 6.1"
+      ],
+      "video_prompt": "professional walking up modern architectural staircase, steady upward movement, metaphor for career advancement --ar 16:9",
+      "motion_mode": "low"
+    },
+    {
+      "id": "digital_transformation",
+      "name": "Digital Transformation",
+      "image_prompts": [
+        "traditional business elements transforming into digital particles, metamorphosis visualization, blue and purple gradient, tech evolution --ar 16:9 --v 6.1",
+        "professional using augmented reality interface, floating digital displays, clean modern office, technology integration --ar 16:9 --v 6.1"
+      ],
+      "video_prompt": "physical objects dissolving into digital data streams, flowing transformation, modern tech aesthetic --ar 16:9",
+      "motion_mode": "high"
+    },
+    {
+      "id": "work_life_balance",
+      "name": "Work-Life Balance",
+      "image_prompts": [
+        "serene home office with large window view of nature, laptop on wooden desk, plant on windowsill, balanced lifestyle aesthetic --ar 16:9 --v 6.1",
+        "abstract yin yang concept with work and life elements, minimalist design, harmony visualization, professional lifestyle balance --ar 16:9 --v 6.1"
+      ],
+      "video_prompt": "peaceful transition from work laptop to sunset view through window, gradual shift, tranquil professional life --ar 16:9",
+      "motion_mode": "low"
+    },
+    {
+      "id": "customer_focus",
+      "name": "Customer Focus",
+      "image_prompts": [
+        "professional having genuine conversation with client, coffee shop meeting, authentic connection, natural lighting, trust building --ar 16:9 --v 6.1",
+        "abstract concentric circles emanating from center point, customer at center concept, warm professional color palette --ar 16:9 --v 6.1"
+      ],
+      "video_prompt": "professional handshake transitioning to collaborative work, building relationship, partnership formation --ar 16:9",
+      "motion_mode": "low"
+    },
+    {
+      "id": "data_insights",
+      "name": "Data & Insights",
+      "image_prompts": [
+        "elegant data dashboard floating in space, key metrics highlighted, dark theme with accent colors, business intelligence visualization --ar 16:9 --v 6.1",
+        "professional analyzing holographic charts, thoughtful expression, modern analytics environment, strategic thinking --ar 16:9 --v 6.1"
+      ],
+      "video_prompt": "data visualizations morphing and updating, insights emerging from numbers, dynamic business intelligence --ar 16:9",
+      "motion_mode": "high"
+    },
+    {
+      "id": "creative_thinking",
+      "name": "Creative Thinking",
+      "image_prompts": [
+        "lightbulb made of interconnected ideas and concepts, glowing innovation symbol, dark background, creative business visualization --ar 16:9 --v 6.1",
+        "professional in creative workspace, sketching ideas on whiteboard, surrounded by inspiration, design thinking environment --ar 16:9 --v 6.1"
+      ],
+      "video_prompt": "abstract representation of ideas connecting and forming, neural creativity visualization, innovation in motion --ar 16:9",
+      "motion_mode": "high"
+    }
+  ],
+  "output": {
+    "remote_host": "beta",
+    "images_path": "/Volumes/STUDIO/IMAGES",
+    "video_path": "/Volumes/STUDIO/VIDEO"
+  }
+}
